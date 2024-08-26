@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="/layouts/_mainLayout">
+
+<div layout:fragment="content">
+    <h1>Crear nueva categoria</h1>
+    <form th:action="@{/marcas/save}" th:object="${marca}" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="nombreK">Nombre</label>
+                    <input type="text" class="form-control" th:field="*{nombreK}" id="nombreK" placeholder="Escriba el nombre de la marca" required>
+                </div>
+            </div>
+        </div>
+        
+
+
+        <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger" role="alert">
+            <ul>
+                <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+            </ul>
+        </div>
+
+        <hr>
+        <button type="submit" class="btn btn-primary">Guardar</button> |
+        <a th:href="@{/marcas}" class="btn btn-secondary">Regresar</a>
+    </form>
+</div>
+</html>

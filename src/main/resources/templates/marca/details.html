@@ -1,0 +1,24 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="/layouts/_mainLayout">
+
+<div layout:fragment="content">
+    <h1>Detalles categoria</h1>
+    <h3>¿Está seguro que desea eliminar este registro?</h3>
+    <div>
+        <hr />
+        <dl class="row">
+            <dt class = "col-sm-2" >ID</dt>
+            <dd class = "col-sm-10" th:text="${marca.id}"></dd>
+
+            <dt class = "col-sm-2">Nombre</dt>
+            <dd class = "col-sm-10" th:text="${marca.nombreK}"></dd>
+        </dl>
+
+        <a th:href="@{/marcas/edit/{id}(id=${marca.id})}" class="btn btn-outline-info">Editar</a> |
+        <a th:href="@{/marcas}" class="btn btn-secondary">Regresar</a>
+    </div>
+
+    </div>
+</div>
